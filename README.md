@@ -4,9 +4,11 @@
 This repository contains the classes, test cases and inputs related to Geektrust's Family problem.
 <br />
 <b>Run the code using the following command:</b>
-```
+<br />
+<pre><code>
 python geektrust.py <Absolute-Path-To-Input-File>
-```
+</code></pre>
+<br />
 Eg:
 ```
 python geektrust.py <Absolute-Path-To-Input-File>/Inputs/Input1.txt
