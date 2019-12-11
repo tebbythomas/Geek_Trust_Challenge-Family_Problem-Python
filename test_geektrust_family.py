@@ -8,20 +8,22 @@ For most functions, positive and negative test cases have been added
 import unittest
 import sys
 from person import Person
-from populate_family import Populate_Family as Pop_Fam
-from main_class import MainClass 
-from family_functions import Family_Functions as Fam_Func
+from main_class import MainClass
 
- 
+# Constants defined here
+MALE = "Male"
+FEMALE = "Female"
+POPULATE_FAMILY_TREE_FILE = "Inputs/Populate_Family_Tree.txt"
+
 class TestFamily(unittest.TestCase):
     # Function to first contruct the family tree and store the root as Shan
     def setUp(self):
         main_class = MainClass()
-        self.shan = Person("Shan", "Male")
-        pf = Pop_Fam()
-        pf.populate_family(self.shan)
-        self.obj = Fam_Func()
- 
+        self.shan = Person("Shan", MALE)
+        self.obj = Person()
+        commands = main_class.read_input_file(POPULATE_FAMILY_TREE_FILE)
+        main_class.call_fam_funcs(self.shan, commands, populate_family_tree=True)
+    
     def test_find_person_positive(self):
         answers_retrieved_obj = self.obj.find_person(self.shan, "Kriya")
         self.assertEqual( "Kriya", answers_retrieved_obj.name)
@@ -179,7 +181,7 @@ class TestFamily(unittest.TestCase):
 
     def test_add_child_daughter(self):
         mother = self.obj.find_person(self.shan, "Jnki")
-        self.obj.add_child(mother, Person("Rohini", "Female"))
+        self.obj.add_child(mother, Person("Rohini", FEMALE))
         correct_answer = ["Lavnya", "Rohini"]
         answers_retrieved_obj = self.obj.get_daughters(self.shan, "Jnki")
         answers_retrieved_lst = list()
@@ -195,7 +197,7 @@ class TestFamily(unittest.TestCase):
 
     def test_add_child_son(self):
         mother = self.obj.find_person(self.shan, "Dritha")
-        self.obj.add_child(mother, Person("Arjun", "Male"))
+        self.obj.add_child(mother, Person("Arjun", MALE))
         correct_answer = ["Yodhan", "Arjun"]
         answers_retrieved_obj = self.obj.get_sons(self.shan, "Dritha")
         answers_retrieved_lst = list()
@@ -211,14 +213,14 @@ class TestFamily(unittest.TestCase):
 
     def test_add_spouse_husband(self):
         wife = self.obj.find_person(self.shan, "Chika")
-        husband_to_be_added = Person("Chetan", "Male")
+        husband_to_be_added = Person("Chetan", MALE)
         self.obj.add_spouse(wife, husband_to_be_added)
         husband = self.obj.find_person(self.shan, "Chetan")
         self.assertEqual( husband.name, "Chetan")
 
     def test_add_spouse_wife(self):
         husband = self.obj.find_person(self.shan, "Ahit")
-        wife_to_be_added = Person("Deepa", "Female")
+        wife_to_be_added = Person("Deepa", FEMALE)
         self.obj.add_spouse(husband, wife_to_be_added)
         wife = self.obj.find_person(self.shan, "Deepa")
         self.assertEqual( wife.name, "Deepa")

@@ -27,21 +27,17 @@ The code contains the following files:
 <b>2. main_class.py: </b> Input file is parsed, input commands interpreted, calls sent to family functions, output sent to the terminal
 <br />
 <br />
-<b>3. person.py: </b> contains the relevant attributes of a person
+<b>3. person.py: </b> contains the relevant attributes of a person and functions that a person can perform
 <br />
 <br />
-<b>4. populate_family.py: </b> used to contruct the family tree according 
-to the problem definition. 
-<br />
-The root is created first - King Shan. All subsequenet family members are added via two operations: Add child, Add spouse
+<b>4. test_geektrust_family.py: </b> contains the test cases to test all the family functions defined
 <br />
 <br />
-<b>5. test_geektrust_family.py: </b> contains the test cases to test all the family functions defined
+<b>5. Inputs folder - </b>Contains 6 sample inputs that can be used to test the code.
+<br />
+It also contains the text file - <b>Populate_Family_Tree.txt</b> -with commands to populate the family tree initially.
 <br />
 <br />
-<b>6. Inputs folder - </b>Contains 6 sample inputs that can be used to test the code
-<br />
-<br />
-<b>7. Outputs folder - </b>Contains the expected outputs corresponding to the 6 input files
+<b>6. Outputs folder - </b>Contains the expected outputs corresponding to the 6 input files
 <br />
 </p>
