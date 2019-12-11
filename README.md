@@ -8,7 +8,6 @@ This repository contains the classes, test cases and inputs related to Geektrust
 <pre><code>
 python geektrust.py [Absolute-Path-To-Input-File]
 </code></pre>
-<br />
 Eg:
 <pre><code>
 python geektrust.py [Absolute-Path-To-Input-File]/Inputs/Input1.txt
